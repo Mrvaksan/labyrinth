@@ -31,13 +31,13 @@ public class Main {
         int[][] points = new int[10][10];
 
         // print map
-        System.out.println("????????????????????????");
+        System.out.println("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         for (int i = 0; i < map.length; i++) {
-            System.out.print("??");
+            System.out.print("▓▓");
             for (int j = 0; j < map[i].length; j++) {
                 switch (map[i][j]) {
                     case 1:
-                        System.out.print("??");
+                        System.out.print("▓▓");
                         break;
 
                     default:
@@ -46,17 +46,17 @@ public class Main {
                 }
 
             }
-            System.out.print("??");
+            System.out.print("▓▓");
 
             System.out.println();
         }
 
-        System.out.println("????????????????????????");
+        System.out.println("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
 
         // ask user for source and destination points
-        System.out.println("Ba�lang�� noktas�n�n koordinatlar�n� girin:");
+        System.out.println("Başlangıç noktasının koordinatlarını girin:");
         source = new Node(input.nextInt(), input.nextInt());
-        System.out.println("Hedef noktas�n�n koordinatlar�n� girin:");
+        System.out.println("Hedef noktasının koordinatlarını girin:");
         target = new Node(input.nextInt(), input.nextInt());
 
         // mark all the points over the map
@@ -184,23 +184,23 @@ public class Main {
         }
 
         // print map
-        System.out.println("????????????????????????");
+        System.out.println("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
         for (int i = 0; i < map.length; i++) {
-            System.out.print("??");
+            System.out.print("▓▓");
             for (int j = 0; j < map[i].length; j++) {
                 switch (map[i][j]) {
                     case 1:
-                        System.out.print("??");
+                        System.out.print("▓▓");
                         break;
 
                     case 2:
-                        System.out.print("??");
+                        System.out.print("▒▒");
                         break;
                     case 3:
-                        System.out.print("??");
+                        System.out.print("▼▼");
                         break;
                     case 4:
-                        System.out.print("??");
+                        System.out.print("▞▞");
                         break;
                     default:
                         System.out.print("  ");
@@ -208,11 +208,11 @@ public class Main {
                 }
 
             }
-            System.out.print("??");
+            System.out.print("▓▓");
 
             System.out.println();
         }
 
-        System.out.println("????????????????????????");
+        System.out.println("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
     }
 }
