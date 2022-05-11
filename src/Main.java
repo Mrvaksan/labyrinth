@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Node source, target;
-        ArrayList<Node> path = new ArrayList<Node>();
 
         int[][] map = new int[][] {
                 { 0, 1, 0, 0, 0, 0, 0, 1, 0, 0 },
@@ -214,5 +212,6 @@ public class Main {
         }
 
         System.out.println("▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓");
+        input.close();
     }
 }
