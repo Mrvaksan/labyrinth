@@ -37,4 +37,7 @@ jobs:
           cd out
           javac *.java
           jar cfe App.jar Main *.class
+          
+      - name: Release
+        uses: softprops/action-gh-release@v1 
 
