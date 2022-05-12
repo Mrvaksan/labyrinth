@@ -37,5 +37,4 @@ jobs:
           cd out
           javac *.java
           jar cfe App.jar Main *.class
-          java -jar App.jar
 
