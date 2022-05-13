@@ -3,19 +3,23 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.event.MouseInputListener;
 
-public class UserInterface extends JFrame {
+public class UserInterface extends JFrame implements ActionListener {
     private int[][] map;
     private final int blockSize = 50;
     private Node source, target;
 
     public UserInterface(int[][] map) {
-        this.map = map;
+        Timer timer=new Timer(50, this);
 
+        this.map = map;
         this.setTitle("Path Finder");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(500, 528);
@@ -24,8 +28,6 @@ public class UserInterface extends JFrame {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println("mouseClicked");
-
                 switch (e.getButton()) {
                     case MouseEvent.BUTTON1: {
                         int i;
@@ -42,7 +44,6 @@ public class UserInterface extends JFrame {
                                 }
                                 source = new Node(j, i);
                                 map[i][j] = 3;
-                                repaint();
                             } else {
                                 // show an error message
                                 JOptionPane.showMessageDialog(UserInterface.this, "Duvarı seçemezsin!", "Hata",
@@ -67,7 +68,6 @@ public class UserInterface extends JFrame {
                                 }
                                 target = new Node(j, i);
                                 map[i][j] = 4;
-                                repaint();
                             } else {
                                 // show an error message
                                 JOptionPane.showMessageDialog(UserInterface.this, "Duvarı seçemezsin!", "Hata",
@@ -116,7 +116,6 @@ public class UserInterface extends JFrame {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     resetMap();
                     PathFinder.findPath(map, source, target);
-                    repaint();
                 }
             }
 
@@ -126,12 +125,13 @@ public class UserInterface extends JFrame {
 
         });
 
+
         this.setVisible(true);
+        timer.start();
     }
 
     @Override
     public void paint(Graphics g) {
-        super.paint(g);
         drawLabyrinth(g);
     }
 
@@ -153,13 +153,22 @@ public class UserInterface extends JFrame {
                         drawEndPoint(g, i, j);
                         break;
                     default:
-                        // System.out.print(" ");
-                        // drawPath
+                        drawPath(g,i,j);
                         break;
                 }
             }
         }
 
+    }
+
+    private void drawPath(Graphics g, int i, int j) {
+        int x;
+        int y;
+
+        x = j * blockSize;
+        y = i * blockSize + 28;
+        g.setColor(Color.WHITE);
+        g.fillRect(x, y, blockSize, blockSize);
     }
 
     public void drawWall(Graphics g, int i, int j) {
@@ -212,5 +221,10 @@ public class UserInterface extends JFrame {
                 }
             }
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        repaint();    
     }
 }
