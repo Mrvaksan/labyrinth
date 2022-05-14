@@ -17,7 +17,7 @@ public class UserInterface extends JFrame implements ActionListener {
     private Node source, target;
 
     public UserInterface(int[][] map) {
-        Timer timer=new Timer(50, this);
+        Timer timer=new Timer(300, this);
 
         this.map = map;
         this.setTitle("Path Finder");
