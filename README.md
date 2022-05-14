@@ -2,8 +2,7 @@
 
 ![Pathfinder Screenshot](res/Screenshot.png)
 
-This is a Java Swing application. It gets user inputs from keyboard and mouse to determine source and destination points over a grid area. Then it calculates the shortest path and displays on GUI.
-
+This is a Java Swing application. To specify the source point on a grid area, click the left mouse button, click the right button of the mouse to determine the target point, and then press the "enter" key from the keyboard to get inputs. Then it calculates the shortest path and displays it in the GUI.
 ## Dependencies for Running Locally
 * Java Development Kit (OpenJDK) >= 18.0.1.1
     * All OSes: [click here for installation instructions](https://openjdk.java.net/install/)
